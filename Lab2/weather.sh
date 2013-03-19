@@ -1,5 +1,15 @@
 #!/bin/bash
 
+if [[ x$1 = x"--help" ]]
+then
+    echo "usage: ./weather.sh"
+    echo "config: weather.cfg"
+    echo "config fields:"
+    echo $'\t'"timeout - timeout to wait before next weather update"
+    echo $'\t'"city - city"
+    exit
+fi
+
 timeout=`grep timeout weather.cfg | awk '{print $2}'`
 city=`grep city weather.cfg | awk '{print $2}'`
 
